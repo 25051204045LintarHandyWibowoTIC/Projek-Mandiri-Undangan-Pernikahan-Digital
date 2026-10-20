@@ -1,8 +1,7 @@
 # Undangan Pernikahan Digital
 
-Tugas Pemrograman Berbasis Platform. Dibuat dengan HTML, CSS, Bootstrap 5, dan JavaScript, tanpa framework.
 
-## Cara kerja singkat
+## Cara kerja
 
 1. `index.html` berisi kerangka halaman. Nama, tanggal, lokasi. Elemen yang membutuhkannya diberi atribut `data-isi`.
 2. `js/data.js` menyimpan semua data di satu objek `DATA`. `js/main.js` membaca objek tersebut dan mengisi elemen bertanda `data-isi`. Mengganti isi undangan cukup mengedit `data.js`.
