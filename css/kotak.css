@@ -1,0 +1,40 @@
+/* kotak.css - garis, bayangan, dan efek timbul pada kotak dan form */
+
+/* Warna garis form dan tabel */
+:root { --garis: #b05583; }
+
+/* Garis emas dan bayangan agar kotak terlihat jelas */
+.kartu, .timbul { border: 1.5px solid var(--emas); box-shadow: 5px 8px 20px rgba(27, 42, 65, .14); }
+/* Kotak naik saat disentuh atau ditekan */
+.kartu:hover, .kartu:active, .timbul:hover, .timbul:active { transform: translateY(-4px); box-shadow: 6px 14px 30px rgba(27, 42, 65, .26); }
+/* Kotak tabel Waktu dan Tempat */
+.timbul { background: #fff; border-radius: 16px; transition: transform .3s ease, box-shadow .3s ease; }
+/* Hapus jarak bawah tabel */
+.timbul .table { margin-bottom: 0; }
+
+/* Garis kotak isian berwarna rose */
+.form-control, .form-select { border: 1.5px solid var(--garis); background-color: #fff; }
+/* Cincin pink saat kotak isian dipilih */
+.form-control:focus, .form-select:focus { border-color: #e0508f; box-shadow: 0 0 0 .2rem rgba(224, 80, 143, .25); }
+/* Garis pilihan radio */
+.form-check-input { border: 1.5px solid var(--garis); }
+/* Warna tombol Reset dan Lihat bukti */
+.btn-outline-secondary { --bs-btn-color: var(--garis); --bs-btn-border-color: var(--garis); --bs-btn-hover-bg: var(--garis); --bs-btn-hover-border-color: var(--garis); --bs-btn-hover-color: #fff; }
+
+/* Warna garis tabel */
+.table { --bs-table-border-color: var(--garis); }
+/* Garis tabel lebih tebal */
+.table-bordered > :not(caption) > * { border-width: 1.5px; }
+
+/* Garis kartu ucapan */
+.ucapan { border: 1px solid rgba(176, 85, 131, .5); border-left: 4px solid var(--emas); }
+
+/* Bingkai putih tipis pada foto galeri */
+.grid-galeri .foto-kotak { border: 3px solid #fff; }
+/* Bayangan selalu tampil pada foto dan video galeri */
+.grid-galeri .foto-kotak, #galeri video, #galeri .ratio { border-radius: 16px; box-shadow: 5px 10px 24px rgba(27, 42, 65, .28); }
+/* Sudut video YouTube membulat */
+#galeri .ratio iframe { border-radius: 16px; }
+
+/* Titik warna contoh pakaian */
+.warna-contoh { display: inline-block; width: 1rem; height: 1rem; margin-right: .4rem; border-radius: 50%; border: 1px solid rgba(0, 0, 0, .25); vertical-align: -.15em; }

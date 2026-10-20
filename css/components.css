@@ -1,0 +1,35 @@
+/* components.css - kartu, kotak foto, ucapan, footer, dan tombol musik */
+
+/* Kotak putih berisi konten */
+.kartu { background: #fff; padding: 2rem; border-radius: 20px; border: 1px solid rgba(176, 141, 87, .35); box-shadow: 5px 5px 18px rgba(27, 42, 65, 0.1); transition: transform .3s ease, box-shadow .3s ease; }
+/* Kartu naik sedikit saat disentuh */
+.kartu:hover { transform: translateY(-4px); box-shadow: 5px 10px 24px rgba(27, 42, 65, 0.16); }
+/* Judul di dalam kartu */
+.kartu h3 { font-family: var(--font-judul); font-weight: 700; color: var(--navy); }
+
+/* Kotak foto sekaligus placeholder (kotak berlabel bila foto belum ada) */
+.foto-kotak { position: relative; margin: 0; overflow: hidden; border-radius: 16px; min-height: 12rem; display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem; color: var(--navy); background: linear-gradient(135deg, var(--blush), var(--biru-debu)); }
+/* Menampilkan teks dari atribut data-label */
+.foto-kotak::after { content: attr(data-label); font-size: .9rem; }
+/* Foto menutupi kotak dan labelnya */
+.foto-kotak img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+/* Gaya lama foto mempelai (sebagian besar ditimpa hiasan.css) */
+.foto-mempelai { aspect-ratio: 4 / 5; max-height: 78dvh; margin-inline: auto; border-radius: 200px 200px 16px 16px; }
+
+/* Daftar ucapan yang bisa digulir */
+.daftar-ucapan { max-height: 26rem; overflow-y: auto; display: flex; flex-direction: column; gap: .75rem; }
+/* Satu kartu ucapan */
+.ucapan { padding: .8rem 1rem; border-left: 3px solid var(--emas); background: var(--putih); border-radius: 0 10px 10px 0; }
+/* Warna nama pengirim ucapan */
+.ucapan b { color: var(--navy); }
+
+/* Footer */
+.kaki { background: var(--navy); color: #fff; padding: 2.5rem 1rem; }
+/* Tombol musik bulat di pojok kanan bawah */
+.btn-musik { position: fixed; right: 1rem; bottom: 1rem; z-index: 1500; width: 3rem; height: 3rem; border-radius: 50%; border: 0; background: var(--emas); color: #fff; font-size: 1.4rem; box-shadow: 0 4px 12px rgba(0, 0, 0, .3); }
+/* Tombol berputar saat musik berbunyi */
+.btn-musik.putar { animation: muter 3s linear infinite; }
+/* Animasi berputar */
+@keyframes muter { to { transform: rotate(360deg); } }
+/* Matikan animasi bagi pengguna yang meminta gerakan dikurangi */
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

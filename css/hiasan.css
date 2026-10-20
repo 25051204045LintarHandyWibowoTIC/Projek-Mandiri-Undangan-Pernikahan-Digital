@@ -1,0 +1,57 @@
+/* hiasan.css - bingkai foto, kelopak jatuh, kilau, nama pasangan, dan panel kaca */
+
+/* Bagian jadi acuan posisi hiasan; yang keluar dipotong */
+.bagian, .sampul-mempelai { position: relative; overflow: hidden; }
+/* Isi teks berada di atas hiasan */
+.bagian > .container, .sampul-mempelai > .container { position: relative; z-index: 1; }
+
+/* Kolom foto di sampul */
+.kolom-foto { position: relative; }
+/* Wadah foto + bingkai bunga (rasio sama dengan gambar bingkai) */
+.bingkai-mempelai { position: relative; width: min(100%, 30rem, 56dvh); aspect-ratio: 1060 / 1484; margin-inline: auto; }
+
+/* Foto di dalam bingkai, dipotong segi delapan */
+.bingkai-mempelai .foto-mempelai { position: absolute; left: 15%; top: 15%; width: 70%; height: 71%; aspect-ratio: auto; max-height: none; min-height: 0; margin: 0; padding: 0; border-radius: 0; clip-path: polygon(16% 0, 84% 0, 100% 12%, 100% 88%, 84% 100%, 16% 100%, 0 88%, 0 12%); }
+/* Gambar bingkai di atas foto; klik tembus ke bawah */
+.bingkai-img { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 3; }
+
+/* Bingkai bulat untuk foto mempelai pria dan wanita */
+.bingkai-bulat { --x: 12.8%; position: relative; width: min(18rem, 86%); aspect-ratio: 1; margin: 0 auto 1rem; }
+/* Posisi foto untuk bingkai yang dicerminkan (wanita) */
+.bingkai-bulat.balik { --x: 14.7%; }
+/* Mencerminkan gambar bingkai */
+.bingkai-bulat.balik .bingkai-img { transform: scaleX(-1); }
+/* Foto berbentuk lingkaran di dalam bingkai bulat */
+.foto-bulat { position: absolute; left: var(--x); top: 16.5%; width: 72.6%; aspect-ratio: 1; min-height: 0; margin: 0; padding: 0; border-radius: 50%; }
+
+/* Kelopak sakura jatuh (dibuat oleh hiasan.js) */
+.kelopak { position: absolute; top: -5%; z-index: 2; pointer-events: none; border-radius: 0 100% 0 100%; background: hsl(345, 70%, 84%); opacity: .85; animation: jatuh 10s linear infinite; }
+/* Gerak jatuh sambil berputar */
+@keyframes jatuh {
+  0%   { top: -5%;  transform: translateX(0) rotate(0); }
+  50%  { transform: translateX(40px) rotate(180deg); }
+  100% { top: 105%; transform: translateX(-20px) rotate(360deg); }
+}
+
+/* Bintang emas berkedip (dibuat oleh hiasan.js) */
+.kilau { position: absolute; z-index: 0; pointer-events: none; color: var(--emas); animation: kilau 2.6s ease-in-out infinite; }
+/* Gerak berkedip */
+@keyframes kilau { 0%, 100% { opacity: .1; transform: scale(.5); } 50% { opacity: 1; transform: scale(1.1); } }
+
+/* Sembunyikan hiasan bergerak bila gerakan dikurangi */
+@media (prefers-reduced-motion: reduce) { .kelopak, .kilau { display: none; } }
+
+/* Nama, tanda &, nama: ditumpuk dan rata tengah */
+.nama-pasangan { display: flex; flex-direction: column; align-items: center; margin: 0 0 .6rem; }
+/* Tanda & lebih kecil dan berwarna emas */
+.nama-pasangan .dan { font-size: .55em; line-height: 1.1; color: var(--emas); }
+/* Tulisan kecil di atas nama */
+.label-mempelai { letter-spacing: 3px; text-transform: uppercase; font-size: .85rem; color: #8a3f64; }
+
+/* Kotak putih transparan agar teks terbaca di atas latar */
+.panel-kaca { background: rgba(255, 255, 255, .66); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1.5px solid rgba(176, 141, 87, .7); border-radius: 28px; padding: clamp(1.5rem, 4vw, 2.5rem); box-shadow: 5px 10px 28px rgba(27, 42, 65, .16); }
+/* Garis kotak hitung mundur lebih tebal */
+.hitung div { border-width: 1.5px; }
+
+/* Fokus foto mempelai ke wajah */
+.foto-bulat img { object-position: 50% 45%; }

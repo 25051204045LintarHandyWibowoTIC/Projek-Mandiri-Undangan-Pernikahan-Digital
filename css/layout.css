@@ -1,0 +1,42 @@
+/* layout.css - navbar, jarak antar bagian, sampul mempelai, dan grid galeri */
+
+/* Latar navbar putih transparan dengan efek kabur */
+.bar-atas { background: rgba(251, 250, 248, 0.92); backdrop-filter: blur(6px); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+/* Inisial pasangan di navbar */
+.navbar-brand { font-family: var(--font-nama); font-weight: 400; font-size: 2rem; line-height: 1; color: var(--navy) !important; }
+
+/* Jarak atas-bawah tiap bagian, menyesuaikan lebar layar */
+.bagian { padding: clamp(3rem, 6vw, 6rem) 0; }
+/* Latar putih bagian (sebagian besar sudah ditimpa gradasi.css) */
+.bg-putih { background: var(--putih); }
+/* Bagian pertama: setinggi layar, isi di tengah */
+.sampul-mempelai { min-height: 100dvh; display: flex; align-items: center; padding: 6rem 0 3rem; background: radial-gradient(circle at 80% 10%, var(--blush), transparent 45%), var(--putih); }
+/* Warna nama pasangan di sampul */
+.sampul-mempelai .judul-besar { color: var(--navy); }
+/* Kotak angka hitung mundur */
+.hitung div { min-width: 4.5rem; padding: .6rem; text-align: center; background: #fff; border: 1px solid var(--emas); border-radius: 12px; }
+/* Angka besar di dalam kotak hitung mundur */
+.hitung span { display: block; font-family: var(--font-judul); font-size: 2rem; font-weight: 700; color: var(--navy); line-height: 1.1; }
+
+/* Grid galeri: 2 kolom di HP */
+.grid-galeri { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+/* Ukuran kotak foto galeri */
+.grid-galeri .foto-kotak { min-height: 10rem; aspect-ratio: 1; }
+/* Foto lebar memakai dua kolom */
+.grid-galeri .item-lebar { grid-column: span 2; aspect-ratio: 2 / 1; }
+/* Foto membesar saat disentuh */
+.grid-galeri .foto-kotak img { transition: transform .5s ease; }
+.grid-galeri .foto-kotak:hover img { transform: scale(1.08) rotate(1deg); }
+/* Galeri 4 kolom di layar lebar */
+@media (min-width: 992px) {
+  .grid-galeri { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .grid-galeri .item-lebar { grid-column: span 2; aspect-ratio: auto; }
+  .grid-galeri .foto-kotak { aspect-ratio: auto; min-height: 14rem; }
+}
+
+/* Warna menu navbar tetap walau sudah diklik */
+.navbar .nav-link:link, .navbar .nav-link:visited { color: var(--navy); font-weight: 500; }
+.navbar .nav-link:hover { color: #d6457f; }
+.navbar .nav-link:active { color: #e0508f; }
+/* Teks tombol tetap putih */
+a.btn:link, a.btn:visited, a.btn:hover, a.btn:active { color: #fff; }

@@ -1,0 +1,13 @@
+/* cetak.css - saat dicetak, hanya bukti kehadiran yang keluar */
+
+/* Saat dicetak, hanya bukti kehadiran yang keluar */
+@media print {
+  body > *:not(#modalBukti) { display: none !important; }
+  body::before { display: none !important; }
+  .modal-backdrop { display: none !important; }
+  #modalBukti { position: static !important; display: block !important; opacity: 1 !important; overflow: visible !important; }
+  #modalBukti .modal-dialog { max-width: none !important; margin: 0 !important; transform: none !important; }
+  #modalBukti .modal-content { border: 0 !important; background: none !important; box-shadow: none !important; }
+  #modalBukti .modal-header, #modalBukti .modal-footer, #modalBukti p { display: none !important; }
+  #kanvasBukti { width: auto !important; max-width: 100%; max-height: 98vh; box-shadow: none !important; margin: 0 auto; display: block; }
+}

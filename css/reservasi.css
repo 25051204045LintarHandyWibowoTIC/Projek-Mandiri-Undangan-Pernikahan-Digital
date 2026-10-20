@@ -1,0 +1,34 @@
+/* reservasi.css - tombol pink dan gaya window modal */
+
+/* Tombol bergradasi pink */
+.btn-pink { background: linear-gradient(135deg, #f9b4cf, #ee6fa5 55%, #e0508f); color: #fff; border: 0; border-radius: 50px; padding: .7em 2.2em; font-weight: 500; box-shadow: 0 6px 18px rgba(224, 80, 143, .35); transition: transform .3s ease, box-shadow .3s ease, filter .3s ease; }
+/* Tombol naik dan membesar saat disentuh */
+.btn-pink:hover { color: #fff; transform: translateY(-2px) scale(1.04); box-shadow: 0 10px 24px rgba(224, 80, 143, .45); filter: brightness(1.05); }
+/* Tombol mengecil saat ditekan */
+.btn-pink:active { color: #fff; transform: scale(.98); }
+
+/* Lebar Window: mengikuti layar, maksimal 640px */
+.modal-dialog { --bs-modal-width: min(92vw, 640px); }
+/* Window bergradasi pink (wadah ukuran untuk satuan cqw) */
+.modal-content { position: relative; overflow: hidden; container-type: inline-size; border-radius: 22px; border: 1px solid rgba(176, 141, 87, .4); background: linear-gradient(180deg, #fbc9dd 0%, #fde3ee 35%, #fff4f8 100%); }
+/* Isi window berada di atas hiasan */
+.modal-content > :not(.header-window) { position: relative; z-index: 1; }
+/* Hiasan bunga di atas window, dilebihkan agar pas selebar window */
+.header-window { position: absolute; top: 0; left: -9%; width: 118%; max-width: none; pointer-events: none; z-index: 0; }
+/* Ruang atas 24% lebar window agar judul berada di bawah hiasan */
+.modal-header { border-bottom: 0; justify-content: center; padding-top: 24cqw; }
+/* Posisi tombol tutup */
+.modal-header .btn-close { position: absolute; right: 1rem; top: .6rem; }
+/* Hapus garis atas footer window */
+.modal-footer { border-top: 0; }
+/* Judul window */
+.modal-title { font-family: var(--font-nama); font-weight: 400; font-size: 2.2rem; line-height: 1.1; color: var(--navy); text-align: center; }
+/* Kotak nomor rekening */
+.kotak-rekening { padding: 1.2rem; border: 1px dashed var(--emas); border-radius: 14px; background: rgba(255, 255, 255, .85); }
+
+/* Window bukti lebih sempit */
+#modalBukti .modal-dialog { --bs-modal-width: min(92vw, 460px); }
+/* Ruang atas window bukti (tanpa hiasan) */
+#modalBukti .modal-header { padding-top: 1rem; }
+/* Kanvas bukti tampil selebar window */
+#kanvasBukti { width: 100%; height: auto; border-radius: 14px; box-shadow: 5px 10px 24px rgba(27, 42, 65, .25); }

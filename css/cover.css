@@ -1,0 +1,51 @@
+/* cover.css - layar pembuka (dimuat paling akhir agar menimpa aturan lain) */
+
+/* Cover memenuhi layar di atas semuanya */
+#cover {
+  position: fixed; inset: 0; z-index: 2000; min-height: 100dvh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem; color: var(--navy); background: #fbe3ea;
+  overflow-x: hidden; overflow-y: auto;
+  transition: transform 1s ease;
+}
+/* Cover meluncur ke atas saat dibuka */
+#cover.terbuka { transform: translateY(-100%); }
+
+/* Dua lapisan latar cover */
+.cover-latar, .cover-kabut { position: absolute; inset: 0; pointer-events: none; }
+/* Gambar latar untuk HP */
+.cover-latar { background: url("../assets/cover.jpg") center / cover no-repeat; }
+/* Layar lebar memakai gambar latar versi lebar */
+@media (min-aspect-ratio: 3 / 4) { .cover-latar { background-image: url("../assets/cover-lebar.jpg"); } }
+
+/* Kabut putih transparan agar teks terbaca */
+.cover-kabut { background: linear-gradient(180deg, rgba(255, 255, 255, .45), rgba(255, 255, 255, .22) 50%, rgba(255, 235, 242, .5)); }
+
+/* Isi cover: bingkai di atas, teks di bawah (HP) */
+.cover-konten { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: .5rem; width: 100%; max-width: 72rem; margin: auto; }
+/* Wadah foto dan bingkai lengkung */
+.bingkai-cover { position: relative; flex: none; height: clamp(15rem, 42dvh, 30rem); aspect-ratio: 1060 / 1484; }
+
+/* Foto dipotong mengikuti lengkungan bingkai (titik polygon diukur dari gambar bingkai) */
+.bingkai-cover .foto-cover { position: absolute; left: 8.11%; top: 6.13%; width: 83.58%; height: 86.12%; margin: 0; padding: 0; min-height: 0; aspect-ratio: auto; border: 0; outline: 0; box-shadow: none; border-radius: 0;
+  clip-path: polygon(0.00% 100.00%, 0.00% 60.17%, 0.00% 60.17%, 0.00% 59.39%, 0.00% 58.61%, 0.00% 57.82%, 0.00% 57.04%, 0.00% 56.26%, 0.00% 55.48%, 0.00% 54.69%, 0.00% 53.91%, 0.00% 53.13%, 0.00% 52.35%, 0.00% 51.56%, 0.00% 50.78%, 0.00% 50.00%, 0.00% 49.22%, 0.00% 48.44%, 0.00% 47.65%, 0.00% 46.87%, 0.00% 46.09%, 0.00% 45.31%, 0.00% 44.52%, 0.00% 43.74%, 0.00% 42.96%, 0.00% 42.18%, 0.00% 41.39%, 0.00% 40.61%, 0.00% 39.83%, 0.00% 39.05%, 0.00% 38.26%, 0.00% 37.48%, 0.00% 36.70%, 0.00% 35.92%, 0.00% 35.13%, 0.00% 34.35%, 0.00% 33.57%, 0.00% 32.79%, 0.11% 32.00%, 0.23% 31.22%, 0.34% 30.44%, 0.45% 29.66%, 0.68% 28.87%, 0.79% 28.09%, 1.02% 27.31%, 1.35% 26.53%, 1.69% 25.74%, 1.92% 24.96%, 2.26% 24.18%, 2.71% 23.40%, 3.16% 22.61%, 3.61% 21.83%, 4.06% 21.05%, 4.63% 20.27%, 5.19% 19.48%, 5.76% 18.70%, 6.43% 17.92%, 7.00% 17.14%, 7.79% 16.35%, 8.58% 15.57%, 9.37% 14.79%, 10.16% 14.01%, 11.06% 13.22%, 11.96% 12.44%, 12.98% 11.66%, 14.11% 10.88%, 15.24% 10.09%, 16.48% 9.31%, 17.72% 8.53%, 19.19% 7.75%, 20.65% 6.96%, 22.35% 6.18%, 24.04% 5.40%, 25.96% 4.62%, 28.10% 3.83%, 30.59% 3.05%, 33.41% 2.27%, 36.79% 1.49%, 41.31% 0.70%, 50.68% 0.00%, 100.00% 0.00%, 100.00% 100.00%); }
+/* Posisi foto agar kedua wajah terlihat seimbang */
+.bingkai-cover .foto-cover img { object-position: 50% 35%; }
+/* Kolom teks cover */
+.cover-teks { width: 100%; max-width: 30rem; }
+/* Layar lebar: bingkai di kiri, teks di kanan */
+@media (min-width: 992px) and (min-aspect-ratio: 4 / 3) {
+  .cover-konten { flex-direction: row; justify-content: center; gap: clamp(2rem, 6vw, 6rem); }
+  .bingkai-cover { height: min(86dvh, 44rem); }
+}
+
+/* Ukuran nama pasangan di cover */
+#cover .judul-besar { font-size: clamp(3.4rem, 2.6rem + 3.4vw, 6rem); text-shadow: 0 2px 14px rgba(255, 255, 255, .95); }
+/* Garis pemisah emas */
+.garis-emas { width: 6rem; border: 0; border-top: 2px solid var(--emas); opacity: 1; }
+
+/* Tulisan The Wedding Of */
+.label-cover { font-family: var(--font-judul); font-style: italic; font-weight: 600; font-size: 1.9rem; letter-spacing: 2px; color: #5b2146; }
+
+/* Cahaya putih tipis di belakang teks agar terbaca */
+.cover-teks p, .cover-teks .label-cover { text-shadow: 0 0 6px #fff, 0 0 14px rgba(255, 255, 255, .95), 0 0 26px rgba(255, 255, 255, .8); }
